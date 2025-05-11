@@ -1,14 +1,11 @@
-// Created by
-//booking pojo
-//Emihle Thole(221755349)
-// 2025/05/11
-
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.bookings;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
+/*Emihle Thole
+  221755349
+  */
 @Entity
 public class Bookings {
 @Id
@@ -18,18 +15,9 @@ public class Bookings {
     private LocalDate bookingDate;
     private String bookingType;
     private Double bookingAmount;
-
     @ManyToOne
-    @JoinColumn(name = "test_test_id")
+    @JoinColumn(name = "test_id")
     private Test test;
-
-    public Test getTest() {
-        return test;
-    }
-
-    public void setTest(Test test) {
-        this.test = test;
-    }
 
     public Bookings() {
     }
@@ -58,20 +46,19 @@ public class Bookings {
         return bookingAmount;
     }
 
-    public Test getsTest() {
-        return test;
-    }
+    public Test getTest() {return test;}
 
     @Override
     public String toString() {
         return "Bookings{" +
-                "bookingId='" + bookingId + '\'' +
+                "bookingAmount=" + bookingAmount +
+                ", bookingId='" + bookingId + '\'' +
                 ", bookingDate=" + bookingDate +
                 ", bookingType='" + bookingType + '\'' +
-                ", bookingAmount=" + bookingAmount +
                 ", test=" + test +
                 '}';
-    }
+
+}
 
     public static class Builder{
 

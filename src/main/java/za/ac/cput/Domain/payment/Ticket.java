@@ -1,13 +1,28 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.payment;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
+/*
+Thando Tinto
+221482210
+*/
+
+@Entity
 public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int ticketId;
     private double amount;
     private LocalDate issueDate;
     private String status;
+    public Ticket() {
+    }
 
     private Ticket(Builder builder) {
         this.ticketId = builder.ticketId;

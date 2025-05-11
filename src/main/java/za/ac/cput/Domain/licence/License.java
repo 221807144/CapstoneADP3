@@ -1,11 +1,11 @@
-//Licese pojo
-//Emihle Thole(221755349)
-// 2025/05/11
-
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.licence;
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.user.User;
 
+/*Emihle Thole
+  221755349
+  */
 @Entity
 public class License {
 

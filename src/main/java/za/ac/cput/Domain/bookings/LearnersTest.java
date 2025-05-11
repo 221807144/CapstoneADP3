@@ -1,4 +1,4 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.bookings;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 //Sinokholo Singazi 222705698
 @Entity
-public class LearnersTest extends Test{
+public class LearnersTest extends Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int learnersLicenceID;

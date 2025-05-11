@@ -1,6 +1,11 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.user;
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.bookings.Bookings;
+import za.ac.cput.Domain.contact.Contact;
+import za.ac.cput.Domain.payment.Payments;
+import za.ac.cput.Domain.bookings.Test;
+
 /*Masibuve Sikhulume
 221807144
  */
@@ -12,9 +17,11 @@ public class Admin {
     private String adminName;
     private String adminSurname;
     private Long idNumber;
-    private String phoneNumber;
-    private String email;
-    @ManyToOne
+
+    @OneToOne
+    @JoinColumn(name = "contact_id")
+    private Contact contact;
+       @ManyToOne
     @JoinColumn(name = "admin_bookings_booking_id")
     private Bookings adminBookings;
     @OneToOne
@@ -35,8 +42,11 @@ public class Admin {
         this.adminName = builder.adminName;
         this.adminSurname = builder.adminSurname;
         this.idNumber = builder.idNumber;
-        this.phoneNumber = builder.phoneNumber;
-        this.email = builder.email;
+        this.contact = builder.contact;
+        this.adminBookings = builder.adminBookings;
+        this.test = builder.test;
+        this.payments = builder.payments;
+
     }
 
     public int getAdminId() {
@@ -55,23 +65,34 @@ public class Admin {
         return idNumber;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public Contact getContact() {
+        return contact;
     }
 
-    public String getEmail() {
-        return email;
+    public Bookings getAdminBookings() {
+        return adminBookings;
     }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public Payments getPayments() {
+        return payments;
+    }
+
 
     @Override
     public String toString() {
         return "Admin{" +
-                "adminId='" + adminId + '\'' +
+                "adminId=" + adminId +
                 ", adminName='" + adminName + '\'' +
                 ", adminSurname='" + adminSurname + '\'' +
                 ", idNumber=" + idNumber +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
+                ", contact=" + contact +
+                ", adminBookings=" + adminBookings +
+                ", test=" + test +
+                ", payments=" + payments +
                 '}';
     }
 
@@ -80,8 +101,10 @@ public class Admin {
         private String adminName;
         private String adminSurname;
         private Long idNumber;
-        private String phoneNumber;
-        private String email;
+        private Contact contact;
+        private Bookings adminBookings;
+        private Test test;
+        private Payments payments;
 
         public Builder setAdminId(int adminId) {
             this.adminId = adminId;
@@ -103,24 +126,24 @@ public class Admin {
             return this;
         }
 
-        public Builder setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
+        public Builder setContact(Contact contact) {
+            this.contact = contact;
             return this;
         }
 
-        public Builder setEmail(String email) {
-            this.email = email;
+        public Builder setAdminBookings(Bookings adminBookings) {
+            this.adminBookings = adminBookings;
             return this;
         }
 
-        public Builder copy(Admin admin) {
-            this.adminId = admin.adminId;
-            this.adminName = admin.adminName;
-            this.adminSurname = admin.adminSurname;
-            this.idNumber = admin.idNumber;
-            this.phoneNumber = admin.phoneNumber;
-            this.email = admin.email;
+        public Builder setTest(Test test) {
+            this.test = test;
             return this;
+        }
+        public Builder setPayments(Payments payments) {
+            this.payments = payments;
+            return this;
+
         }
 
         public Admin build() {
