@@ -1,9 +1,9 @@
-package za.ac.cput.Domain.User;
+package za.ac.cput.Domain.user;
 
 import jakarta.persistence.*;
-import za.ac.cput.Domain.Bookings.Bookings;
-import za.ac.cput.Domain.Contact.Address;
-import za.ac.cput.Domain.Contact.Contact;
+import za.ac.cput.Domain.bookings.Bookings;
+import za.ac.cput.Domain.contact.Address;
+import za.ac.cput.Domain.contact.Contact;
 
 import java.time.LocalDate;
 

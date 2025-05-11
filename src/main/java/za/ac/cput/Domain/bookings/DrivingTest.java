@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Bookings;
+package za.ac.cput.Domain.bookings;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,18 +8,18 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 //Sinokholo Singazi 222705698
 @Entity
-public class LearnersTest extends Test {
+public class DrivingTest extends Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int learnersLicenceID;
-    private int testScore;
+    private int driverLicenseID;
+    private String examiner;
 
-    public LearnersTest() {
+    public DrivingTest() {
     }
 
-    private LearnersTest(Builder builder) {
-        this.learnersLicenceID = builder.learnersLicenceID;
-        this.testScore = builder.testScore;
+    private DrivingTest(Builder builder) {
+        this.driverLicenseID = builder.driverLicenseID;
+        this.examiner = builder.examiner;
         this.testID = builder.testID;
         this.testAddress = builder.testAddress;
         this.testVenue = builder.testVenue;
@@ -28,17 +28,20 @@ public class LearnersTest extends Test {
         this.licenseCode = builder.licenseCode;
         this.testAmount = builder.testAmount;
     }
-    public int getLearnersLicenceID() {
-        return learnersLicenceID;
+
+    public int getDriverLicenseID() {
+        return driverLicenseID;
     }
-    public int getTestScore() {
-        return testScore;
+
+    public String getExaminer() {
+        return examiner;
     }
+
     @Override
     public String toString() {
-        return "LearnersTest{" +
-                "learnersLicenceID='" + learnersLicenceID + '\'' +
-                ", testScore=" + testScore +
+        return "DrivingTest{" +
+                "driverLicenseID='" + driverLicenseID + '\'' +
+                ", examiner='" + examiner + '\'' +
                 ", testID='" + testID + '\'' +
                 ", testAddress='" + testAddress + '\'' +
                 ", testVenue='" + testVenue + '\'' +
@@ -48,9 +51,10 @@ public class LearnersTest extends Test {
                 ", testAmount=" + testAmount +
                 '}';
     }
+
     public static class Builder {
-        private int learnersLicenceID;
-        private int testScore;
+        private int  driverLicenseID;
+        private String examiner;
         private int testID;
         private String testAddress;
         private String testVenue;
@@ -59,13 +63,13 @@ public class LearnersTest extends Test {
         private String licenseCode;
         private int testAmount;
 
-        public Builder setLearnersLicenceID(int learnersLicenceID) {
-            this.learnersLicenceID = learnersLicenceID;
+        public Builder setDriverLicenseID(int driverLicenseID) {
+            this.driverLicenseID = driverLicenseID;
             return this;
         }
 
-        public Builder setTestScore(int testScore) {
-            this.testScore = testScore;
+        public Builder setExaminer(String examiner) {
+            this.examiner = examiner;
             return this;
         }
 
@@ -103,21 +107,22 @@ public class LearnersTest extends Test {
             this.testAmount = testAmount;
             return this;
         }
-        public Builder copy(LearnersTest learnersTest) {
-            this.learnersLicenceID = learnersTest.learnersLicenceID;
-            this.testScore = learnersTest.testScore;
-            this.testID = learnersTest.testID;
-            this.testAddress = learnersTest.testAddress;
-            this.testVenue = learnersTest.testVenue;
-            this.testDate = learnersTest.testDate;
-            this.testResult = learnersTest.testResult;
-            this.licenseCode = learnersTest.licenseCode;
-            this.testAmount = learnersTest.testAmount;
+
+        public Builder copy(DrivingTest drivingTest) {
+            this.driverLicenseID = drivingTest.driverLicenseID;
+            this.examiner = drivingTest.examiner;
+            this.testID = drivingTest.testID;
+            this.testAddress = drivingTest.testAddress;
+            this.testVenue = drivingTest.testVenue;
+            this.testDate = drivingTest.testDate;
+            this.testResult = drivingTest.testResult;
+            this.licenseCode = drivingTest.licenseCode;
+            this.testAmount = drivingTest.testAmount;
             return this;
         }
 
-        public LearnersTest build() {
-            return new LearnersTest(this);
+        public DrivingTest build() {
+            return new DrivingTest(this);
         }
     }
 }

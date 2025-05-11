@@ -1,7 +1,7 @@
-package za.ac.cput.Domain.Licence;
+package za.ac.cput.Domain.licence;
 
 import jakarta.persistence.*;
-import za.ac.cput.Domain.User.User;
+import za.ac.cput.Domain.user.User;
 
 /*Emihle Thole
   221755349

@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Payment;
+package za.ac.cput.Domain.payment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

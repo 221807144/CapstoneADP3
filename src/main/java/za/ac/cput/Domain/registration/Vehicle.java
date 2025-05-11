@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Bookings;
+package za.ac.cput.Domain.registration;
 
 import jakarta.persistence.*;
 

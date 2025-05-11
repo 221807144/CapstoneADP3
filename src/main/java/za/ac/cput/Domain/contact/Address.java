@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Contact;
+package za.ac.cput.Domain.contact;
 /*Masibuve Sikhulume
 221807144
  */

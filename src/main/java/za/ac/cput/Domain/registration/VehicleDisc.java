@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Bookings;
+package za.ac.cput.Domain.registration;
 
 /* VehicleDisc.java
      VehicleDisc POJO class
@@ -6,6 +6,7 @@ package za.ac.cput.Domain.Bookings;
      Date: 11 May 2025 */
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.bookings.Bookings;
 
 import java.time.LocalDate;
 @Entity

@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Bookings;
+package za.ac.cput.Domain.bookings;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,7 +1,7 @@
-package za.ac.cput.Domain.Payment;
+package za.ac.cput.Domain.payment;
 
 import jakarta.persistence.*;
-import za.ac.cput.Domain.Bookings.Bookings;
+import za.ac.cput.Domain.bookings.Bookings;
 
 import java.time.LocalDate;
 @Entity
