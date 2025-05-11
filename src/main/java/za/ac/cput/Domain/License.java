@@ -1,3 +1,8 @@
+//Bookings.java
+//booking pojo
+//Emihle Thole(221755349)
+// 2025/05/11
+
 package za.ac.cput.Domain;
 
 import jakarta.persistence.*;
