@@ -1,9 +1,11 @@
+//Bookings.java
+//booking pojo
+//Emihle Thole(221755349)
+// 2025/05/11
+
 package za.ac.cput.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -17,6 +19,18 @@ public class Bookings {
     private String bookingType;
     private Double bookingAmount;
 
+    @ManyToOne
+    @JoinColumn(name = "test_test_id")
+    private Test test;
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
     public Bookings() {
     }
 
@@ -25,6 +39,7 @@ public class Bookings {
         this.bookingDate = builder. bookingDate;
         this.bookingType = builder.bookingType;
         this.bookingAmount = builder.bookingAmount;
+        this.test = builder.test;
     }
 
     public String getBookingId() {
@@ -43,6 +58,10 @@ public class Bookings {
         return bookingAmount;
     }
 
+    public Test getsTest() {
+        return test;
+    }
+
     @Override
     public String toString() {
         return "Bookings{" +
@@ -50,6 +69,7 @@ public class Bookings {
                 ", bookingDate=" + bookingDate +
                 ", bookingType='" + bookingType + '\'' +
                 ", bookingAmount=" + bookingAmount +
+                ", test=" + test +
                 '}';
     }
 
@@ -59,6 +79,7 @@ public class Bookings {
         private LocalDate bookingDate;
         private String bookingType;
         private Double bookingAmount;
+        private Test test;
 
         public Builder setBookingId(String bookingId) {
             this.bookingId = bookingId;
@@ -80,11 +101,17 @@ public class Bookings {
             return this;
         }
 
+        public Builder setTest(Test test) {
+            this.test = test;
+            return this;
+        }
+
         public Builder copy(Bookings bookings) {
             this.bookingId = bookings.bookingId;
             this.bookingDate = bookings.bookingDate;
             this.bookingType = bookings.bookingType;
             this.bookingAmount = bookings.bookingAmount;
+            this.test = bookings.test;
             return this;
         }
 
