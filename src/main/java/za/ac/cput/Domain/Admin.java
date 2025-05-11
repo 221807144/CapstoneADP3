@@ -1,9 +1,6 @@
 package za.ac.cput.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Admin {
@@ -15,6 +12,18 @@ public class Admin {
     private Long idNumber;
     private String phoneNumber;
     private String email;
+    @ManyToOne
+    @JoinColumn(name = "admin_bookings_booking_id")
+    private Bookings adminBookings;
+    @OneToOne
+    @JoinColumn(name = "admin_test_test_id")
+    private Test test;
+    @OneToOne
+    @JoinColumn(name = "admin_payments_payment_id")
+    private Payments payments;
+
+
+
 
     public Admin() {
     }
