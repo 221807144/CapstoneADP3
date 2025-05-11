@@ -4,6 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+/* Registration.java
+     Registration POJO class
+     Author: Sibahle shange (222529571)
+     Date: 11 May 2025 */
 
 @Entity
 public class Registration {

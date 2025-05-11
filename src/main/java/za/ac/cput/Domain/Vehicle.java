@@ -3,6 +3,10 @@ package za.ac.cput.Domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+/* Vehicle.java
+     Vehicle POJO class
+     Author: Sibahle shange (222529571)
+     Date: 11 May 2025 */
 @Entity
 public class Vehicle {
     @Id
