@@ -1,5 +1,10 @@
 package za.ac.cput.Domain;
 
+/* VehicleDisc.java
+     VehicleDisc POJO class
+     Author: Sibahle shange (222529571)
+     Date: 11 May 2025 */
+
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
