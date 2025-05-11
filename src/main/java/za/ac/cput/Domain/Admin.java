@@ -1,7 +1,9 @@
 package za.ac.cput.Domain;
 
 import jakarta.persistence.*;
-
+/*Masibuve Sikhulume
+221807144
+ */
 @Entity
 public class Admin {
     @Id

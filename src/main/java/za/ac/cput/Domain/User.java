@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-
+/*Masibuve Sikhulume
+221807144
+ */
 @Entity
 
 public class User {

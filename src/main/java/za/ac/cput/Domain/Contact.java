@@ -4,7 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+/*Masibuve Sikhulume
+221807144
+ */
 @Entity
 public class Contact {
     @Id

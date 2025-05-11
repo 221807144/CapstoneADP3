@@ -1,5 +1,7 @@
 package za.ac.cput.Domain;
-
+/*Masibuve Sikhulume
+221807144
+ */
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
