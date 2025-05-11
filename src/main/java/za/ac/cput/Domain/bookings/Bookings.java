@@ -57,7 +57,7 @@ public class Bookings {
                 ", bookingType='" + bookingType + '\'' +
                 ", test=" + test +
                 '}';
-    }
+
 }
 
     public static class Builder{
