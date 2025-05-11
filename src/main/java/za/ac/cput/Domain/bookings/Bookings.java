@@ -51,12 +51,14 @@ public class Bookings {
     @Override
     public String toString() {
         return "Bookings{" +
-                "bookingId='" + bookingId + '\'' +
+                "bookingAmount=" + bookingAmount +
+                ", bookingId='" + bookingId + '\'' +
                 ", bookingDate=" + bookingDate +
                 ", bookingType='" + bookingType + '\'' +
-                ", bookingAmount=" + bookingAmount +
+                ", test=" + test +
                 '}';
-    }
+
+}
 
     public static class Builder{
 
