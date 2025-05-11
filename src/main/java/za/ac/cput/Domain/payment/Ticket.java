@@ -6,6 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
+
+/*
+Thando Tinto
+221482210
+*/
+
 @Entity
 public class Ticket {
     @Id

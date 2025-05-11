@@ -4,6 +4,12 @@ import jakarta.persistence.*;
 import za.ac.cput.Domain.bookings.Bookings;
 
 import java.time.LocalDate;
+
+/*
+Thando Tinto
+221482210
+*/
+
 @Entity
 public class Payments {
     @Id
