@@ -1,7 +1,11 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.Licence;
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.User.User;
 
+/*Emihle Thole
+  221755349
+  */
 @Entity
 public class License {
 

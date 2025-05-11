@@ -1,4 +1,4 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.Demographic;
 /*Masibuve Sikhulume
 221807144
  */

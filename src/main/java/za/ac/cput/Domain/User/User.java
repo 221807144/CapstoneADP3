@@ -1,9 +1,12 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.User;
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.Bookings.Bookings;
+import za.ac.cput.Domain.Demographic.Address;
+import za.ac.cput.Domain.Demographic.Contact;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+
 /*Masibuve Sikhulume
 221807144
  */

@@ -1,6 +1,10 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.User;
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.Bookings.Bookings;
+import za.ac.cput.Domain.Payment.Payments;
+import za.ac.cput.Domain.Bookings.Test;
+
 /*Masibuve Sikhulume
 221807144
  */

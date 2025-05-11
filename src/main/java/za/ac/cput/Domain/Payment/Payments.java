@@ -1,11 +1,27 @@
-package za.ac.cput.Domain;
+package za.ac.cput.Domain.Payment;
+
+import jakarta.persistence.*;
+import za.ac.cput.Domain.Bookings.Bookings;
 
 import java.time.LocalDate;
-
+@Entity
 public class Payments {
-    private String paymentId, paymentMethod, paymentDetails;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private int paymentId;
+    private String paymentMethod, paymentDetails;
     private double paymentAmount;
     private LocalDate paymentDate;
+    @ManyToOne
+    @JoinColumn(name = "booking_id")
+    private Bookings bookings;
+    @OneToOne
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
+
+    public Payments() {
+    }
 
     private Payments(Builder builder) {
         this.paymentId = builder.paymentId;
@@ -15,7 +31,7 @@ public class Payments {
         this.paymentDate = builder.paymentDate;
     }
 
-    public String getPaymentId() {
+    public int getPaymentId() {
         return paymentId;
     }
 
@@ -47,11 +63,12 @@ public class Payments {
     }
 
     public static class Builder {
-        private String paymentId, paymentMethod, paymentDetails;
+        private int paymentId;
+        private String paymentMethod, paymentDetails;
         private double paymentAmount;
         private LocalDate paymentDate;
 
-        public Builder setPaymentId(String paymentId) {
+        public Builder setPaymentId(int paymentId) {
             this.paymentId = paymentId;
             return this;
         }
