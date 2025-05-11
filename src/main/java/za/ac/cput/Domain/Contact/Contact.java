@@ -1,4 +1,4 @@
-package za.ac.cput.Domain.Demographic;
+package za.ac.cput.Domain.Contact;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
