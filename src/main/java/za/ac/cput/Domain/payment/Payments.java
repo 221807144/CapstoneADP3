@@ -19,6 +19,8 @@ public class Payments {
     @OneToOne
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;
+    @OneToOne
+    private Payments payments;
 
     public Payments() {
     }
@@ -29,6 +31,10 @@ public class Payments {
         this.paymentDetails = builder.paymentDetails;
         this.paymentAmount = builder.paymentAmount;
         this.paymentDate = builder.paymentDate;
+        this.bookings = builder.bookings;
+        this.ticket = builder.ticket;
+        this.payments = builder.payments;
+
     }
 
     public int getPaymentId() {
@@ -51,14 +57,29 @@ public class Payments {
         return paymentDate;
     }
 
+    public Bookings getBookings() {
+        return bookings;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public Payments getPayments() {
+        return payments;
+    }
+
     @Override
     public String toString() {
         return "Payments{" +
-                "paymentId='" + paymentId + '\'' +
+                "paymentId=" + paymentId +
                 ", paymentMethod='" + paymentMethod + '\'' +
                 ", paymentDetails='" + paymentDetails + '\'' +
                 ", paymentAmount=" + paymentAmount +
                 ", paymentDate=" + paymentDate +
+                ", bookings=" + bookings +
+                ", ticket=" + ticket +
+                ", payments=" + payments +
                 '}';
     }
 
@@ -67,6 +88,11 @@ public class Payments {
         private String paymentMethod, paymentDetails;
         private double paymentAmount;
         private LocalDate paymentDate;
+        private Payments payments;
+        private Ticket ticket;
+        private Bookings bookings;
+
+
 
         public Builder setPaymentId(int paymentId) {
             this.paymentId = paymentId;
@@ -92,6 +118,18 @@ public class Payments {
             this.paymentDate = paymentDate;
             return this;
         }
+        public Builder setBookings(Bookings bookings) {
+            this.bookings = bookings;
+            return this;
+        }
+        public Builder setTicket(Ticket ticket) {
+            this.ticket = ticket;
+            return this;
+        }
+        public Builder setPayments(Payments payments) {
+            this.payments = payments;
+            return this;
+        }
 
         public Builder copy(Payments payments) {
             this.paymentId = payments.paymentId;
@@ -99,6 +137,9 @@ public class Payments {
             this.paymentDetails = payments.paymentDetails;
             this.paymentAmount = payments.paymentAmount;
             this.paymentDate = payments.paymentDate;
+            this.bookings = payments.bookings;
+            this.ticket = payments.ticket;
+            this.payments = payments.payments;
             return this;
         }
 
