@@ -1,15 +1,18 @@
 package za.ac.cput.Domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 import java.util.Objects;
-
+//Sinokholo Singazi 222705698
 @Entity
 public class Test {
     @Id
-    protected String testID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected int testID;
     protected String testAddress;
     protected String testVenue;
     protected LocalDate testDate;
@@ -40,7 +43,7 @@ public class Test {
         return testResult;
     }
 
-    public String getTestID() {
+    public int getTestID() {
         return testID;
     }
 
