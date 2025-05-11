@@ -1,14 +1,17 @@
 package za.ac.cput.Domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
-
+//Sinokholo Singazi 222705698
 @Entity
 public class LearnersTest extends Test{
     @Id
-    private String learnersLicenceID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int learnersLicenceID;
     private int testScore;
 
     public LearnersTest() {
@@ -25,7 +28,7 @@ public class LearnersTest extends Test{
         this.licenseCode = builder.licenseCode;
         this.testAmount = builder.testAmount;
     }
-    public String getLearnersLicenceID() {
+    public int getLearnersLicenceID() {
         return learnersLicenceID;
     }
     public int getTestScore() {
@@ -46,9 +49,9 @@ public class LearnersTest extends Test{
                 '}';
     }
     public static class Builder {
-        private String learnersLicenceID;
+        private int learnersLicenceID;
         private int testScore;
-        private String testID;
+        private int testID;
         private String testAddress;
         private String testVenue;
         private LocalDate testDate;
@@ -56,7 +59,7 @@ public class LearnersTest extends Test{
         private String licenseCode;
         private int testAmount;
 
-        public Builder setLearnersLicenceID(String learnersLicenceID) {
+        public Builder setLearnersLicenceID(int learnersLicenceID) {
             this.learnersLicenceID = learnersLicenceID;
             return this;
         }
@@ -66,7 +69,7 @@ public class LearnersTest extends Test{
             return this;
         }
 
-        public Builder setTestID(String testID) {
+        public Builder setTestID(int testID) {
             this.testID = testID;
             return this;
         }
