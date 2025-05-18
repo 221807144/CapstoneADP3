@@ -1,7 +1,8 @@
 package za.ac.cput.Factory;
 
 import za.ac.cput.Domain.bookings.Bookings;
-import za.ac.cput.Domain.bookings.Test;
+import za.ac.cput.Domain.bookings.TestAppointment;
+import za.ac.cput.Domain.bookings.TestAppointment;
 import za.ac.cput.Domain.bookings.VehicleDisc;
 import za.ac.cput.Util.Helper;
 
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 
 public class BookingsFactory {
 
-    private static Bookings createBookings( LocalDate bookingDate, String bookingType, Double bookingAmount, Test test, VehicleDisc vehicleDisc) {
+    private static Bookings createBookings(LocalDate bookingDate, String bookingType, Double bookingAmount, TestAppointment testAppointment, VehicleDisc vehicleDisc) {
 
         int bookingId = Helper.generateUniqueId();
 if (bookingAmount == null || bookingAmount <= 0)
@@ -22,11 +23,9 @@ if(Helper.isNullOrEmpty(bookingType))
 if(Helper.isDateInPast(bookingDate)|| !Helper.isNullOrEmpty(bookingDate.toString()))
     return null;
 
-        if (test == null || vehicleDisc == null) {
+        if (testAppointment == null || vehicleDisc == null) {
             return null;
         }
-
-
 
 
 
@@ -35,7 +34,7 @@ if(Helper.isDateInPast(bookingDate)|| !Helper.isNullOrEmpty(bookingDate.toString
                 .setBookingDate(bookingDate)
                 .setBookingType(bookingType)
                 .setBookingAmount(bookingAmount)
-                .setTest(test)
+                .setTest(testAppointment)
                 .setVehicleDisc(vehicleDisc)
                 .build();
     }
