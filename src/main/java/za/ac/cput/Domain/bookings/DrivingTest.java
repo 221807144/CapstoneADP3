@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 //Sinokholo Singazi 222705698
 @Entity
-public class DrivingTest extends Test {
+public class DrivingTest extends TestAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int driverLicenseID;
@@ -61,7 +61,7 @@ public class DrivingTest extends Test {
         private LocalDate testDate;
         private boolean testResult;
         private String licenseCode;
-        private int testAmount;
+        private double testAmount;
 
         public Builder setDriverLicenseID(int driverLicenseID) {
             this.driverLicenseID = driverLicenseID;
@@ -103,7 +103,7 @@ public class DrivingTest extends Test {
             return this;
         }
 
-        public Builder setTestAmount(int testAmount) {
+        public Builder setTestAmount(double testAmount) {
             this.testAmount = testAmount;
             return this;
         }

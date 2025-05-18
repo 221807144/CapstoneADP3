@@ -8,17 +8,17 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 //Sinokholo Singazi 222705698
 @Entity
-public class LearnersTest extends Test {
+public class LearnersTest extends TestAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int learnersLicenceID;
+    private int learnersLicenseID;
     private int testScore;
 
     public LearnersTest() {
     }
 
     private LearnersTest(Builder builder) {
-        this.learnersLicenceID = builder.learnersLicenceID;
+        this.learnersLicenseID = builder.learnersLicenseID;
         this.testScore = builder.testScore;
         this.testID = builder.testID;
         this.testAddress = builder.testAddress;
@@ -28,8 +28,8 @@ public class LearnersTest extends Test {
         this.licenseCode = builder.licenseCode;
         this.testAmount = builder.testAmount;
     }
-    public int getLearnersLicenceID() {
-        return learnersLicenceID;
+    public int getLearnersLicenseID() {
+        return learnersLicenseID;
     }
     public int getTestScore() {
         return testScore;
@@ -37,7 +37,7 @@ public class LearnersTest extends Test {
     @Override
     public String toString() {
         return "LearnersTest{" +
-                "learnersLicenceID='" + learnersLicenceID + '\'' +
+                "learnersLicenseID='" + learnersLicenseID + '\'' +
                 ", testScore=" + testScore +
                 ", testID='" + testID + '\'' +
                 ", testAddress='" + testAddress + '\'' +
@@ -49,7 +49,7 @@ public class LearnersTest extends Test {
                 '}';
     }
     public static class Builder {
-        private int learnersLicenceID;
+        private int learnersLicenseID;
         private int testScore;
         private int testID;
         private String testAddress;
@@ -57,10 +57,10 @@ public class LearnersTest extends Test {
         private LocalDate testDate;
         private boolean testResult;
         private String licenseCode;
-        private int testAmount;
+        private double testAmount;
 
-        public Builder setLearnersLicenceID(int learnersLicenceID) {
-            this.learnersLicenceID = learnersLicenceID;
+        public Builder setLearnersLicenseID(int learnersLicenseID) {
+            this.learnersLicenseID = learnersLicenseID;
             return this;
         }
 
@@ -99,12 +99,12 @@ public class LearnersTest extends Test {
             return this;
         }
 
-        public Builder setTestAmount(int testAmount) {
+        public Builder setTestAmount(double testAmount) {
             this.testAmount = testAmount;
             return this;
         }
         public Builder copy(LearnersTest learnersTest) {
-            this.learnersLicenceID = learnersTest.learnersLicenceID;
+            this.learnersLicenseID = learnersTest.learnersLicenseID;
             this.testScore = learnersTest.testScore;
             this.testID = learnersTest.testID;
             this.testAddress = learnersTest.testAddress;
@@ -119,5 +119,7 @@ public class LearnersTest extends Test {
         public LearnersTest build() {
             return new LearnersTest(this);
         }
+
+
+        }
     }
-}
