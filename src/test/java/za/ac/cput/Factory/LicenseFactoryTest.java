@@ -8,9 +8,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LicenseFactoryTest {
 
+    @Test
+    void setUp() {
 
-}
+            License license = new License.Builder()
+                    .setLicenseId(123456789)
+                    .setLicenseType("B")
+                    .setIssueDate("2024-01-01")
+                    .setExpiryDate("2025-01-01")
+                    .build();
 
+            assertNotNull(license);
+            System.out.println(license.toString());
+
+
+
+        }
+
+
+    }
 
 
 

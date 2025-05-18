@@ -1,9 +1,7 @@
 package za.ac.cput.Factory;
 
-import za.ac.cput.Domain.bookings.Bookings;
+import za.ac.cput.Domain.bookings.*;
 import za.ac.cput.Domain.bookings.TestAppointment;
-import za.ac.cput.Domain.bookings.TestAppointment;
-import za.ac.cput.Domain.bookings.VehicleDisc;
 import za.ac.cput.Util.Helper;
 
 import java.time.LocalDate;
@@ -12,7 +10,7 @@ import java.time.LocalDate;
 
 public class BookingsFactory {
 
-    public static Bookings createBookings(LocalDate bookingDate, String bookingType, Double bookingAmount, TestAppointment testAppointment, VehicleDisc vehicleDisc) {
+    public static Bookings createBookings(LocalDate bookingDate, String bookingType, Double bookingAmount, LearnersTest learnersTest, VehicleDisc vehicleDisc,DrivingTest drivingTest) {
 
         int bookingId = Helper.generateUniqueId();
 if (bookingAmount == null || bookingAmount <= 0)
@@ -22,10 +20,12 @@ if(Helper.isNullOrEmpty(bookingType))
 
 if(Helper.isDateInPast(bookingDate)|| !Helper.isNullOrEmpty(bookingDate.toString()))
     return null;
-
-        if (testAppointment == null || vehicleDisc == null) {
+        if (vehicleDisc == null)
             return null;
-        }
+
+        if (learnersTest == null && drivingTest == null)
+            return null;
+
 
 
 
@@ -34,8 +34,9 @@ if(Helper.isDateInPast(bookingDate)|| !Helper.isNullOrEmpty(bookingDate.toString
                 .setBookingDate(bookingDate)
                 .setBookingType(bookingType)
                 .setBookingAmount(bookingAmount)
-                .setTest(testAppointment)
                 .setVehicleDisc(vehicleDisc)
+                .setDrivingTest(drivingTest)
+                .setLearnersTest(learnersTest)
                 .build();
     }
 }
