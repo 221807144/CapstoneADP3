@@ -1,9 +1,12 @@
-package za.ac.cput.Helper;
+package za.ac.cput.Util;
 
 import org.apache.commons.validator.routines.EmailValidator;
 import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Helper {
+
+    private static final AtomicInteger idCounter = new AtomicInteger(1000); // Start from 1000
 
     // Validate if a string is null or empty
     public static boolean isNullOrEmpty(String str) {
@@ -11,7 +14,7 @@ public class Helper {
     }
 
     // Validate if an ID number is valid (example: must be 13 digits)
-    public static boolean isValidIdNumber(Long idNumber) {
+    public static boolean isValidIdNumber(String idNumber) {
         return idNumber != null && String.valueOf(idNumber).length() == 13;
     }
 
@@ -20,9 +23,9 @@ public class Helper {
         return date != null && date.isBefore(LocalDate.now());
     }
 
-    // Generate a unique identifier
-    public static String generateUniqueId() {
-        return java.util.UUID.randomUUID().toString();
+    // Generate a unique integer identifier
+    public static int generateUniqueId() {
+        return idCounter.getAndIncrement();
     }
 
     // Validate email using Apache Commons Validator
@@ -34,7 +37,7 @@ public class Helper {
     // Extract date of birth from South African ID number
     public static LocalDate getDateOfBirth(String identityNumber) {
         if (identityNumber == null || identityNumber.length() != 13) {
-            throw new IllegalArgumentException("Invalid Identity Number");
+            return null;
         }
 
         int year = Integer.parseInt(identityNumber.substring(0, 2));
