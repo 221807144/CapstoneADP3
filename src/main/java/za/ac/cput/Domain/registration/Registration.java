@@ -1,9 +1,6 @@
 package za.ac.cput.Domain.registration;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 /* Registration.java
      Registration POJO class
      Author: Sibahle shange (222529571)
@@ -16,7 +13,10 @@ public class Registration {
     private int registrationId;
     private  String  registrationNumber;
     private String registrationDate;
-    
+    @OneToOne
+    @JoinColumn(name = "vehicle_vehicle_id")
+    private Vehicle vehicle;
+
     public Registration() {
     }
 
@@ -37,20 +37,25 @@ public class Registration {
     public String getRegistrationDate() {
         return registrationDate;
     }
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
     @Override
     public String toString() {
         return "Registration{" +
-                "registrationId='" + registrationId + '\'' +
+                "registrationId=" + registrationId +
                 ", registrationNumber='" + registrationNumber + '\'' +
                 ", registrationDate='" + registrationDate + '\'' +
+                ", vehicle=" + vehicle +
                 '}';
     }
-    
+
     public static class Builder{
         private int registrationId;
         private  String  registrationNumber;
         private String registrationDate;
+        private Vehicle vehicle;
 
         public Builder setRegistrationId(int registrationId) {
             this.registrationId = registrationId;
@@ -64,6 +69,10 @@ public class Registration {
 
         public Builder setRegistrationDate(String registrationDate) {
             this.registrationDate = registrationDate;
+            return this;
+        }
+        public Builder setVehicle(Vehicle vehicle) {
+            this.vehicle = vehicle;
             return this;
         }
 

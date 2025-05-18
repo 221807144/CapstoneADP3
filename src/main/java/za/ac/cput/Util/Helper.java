@@ -1,7 +1,8 @@
-package za.ac.cput.Helper;
+package za.ac.cput.Util;
 
 import org.apache.commons.validator.routines.EmailValidator;
 import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Helper {
 
@@ -19,12 +20,11 @@ public class Helper {
     public static boolean isDateInPast(LocalDate date) {
         return date != null && date.isBefore(LocalDate.now());
     }
-
-    // Generate a unique identifier
-    public static String generateUniqueId() {
-        return java.util.UUID.randomUUID().toString();
-    }
-
+    // Validate if a date is in the future
+    private static final AtomicInteger idCounter = new AtomicInteger(1000); // Start from 1000
+    public static int generateUniqueId() {
+        return idCounter.getAndIncrement();
+}
     // Validate email using Apache Commons Validator
     public static boolean isValidEmail(String email) {
         EmailValidator validator = EmailValidator.getInstance();

@@ -17,10 +17,11 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int ticketId;
+    private String ticketId;
     private double amount;
     private LocalDate issueDate;
     private String status;
+
     public Ticket() {
     }
 
@@ -31,7 +32,7 @@ public class Ticket {
         this.status = builder.status;
     }
 
-    public int getTicketId() {
+    public String getTicketId() {
         return ticketId;
     }
 
@@ -58,12 +59,12 @@ public class Ticket {
     }
 
     public static class Builder {
-        private int ticketId;
+        private String ticketId;
         private double amount;
         private LocalDate issueDate;
         private String status;
 
-        public Builder setTicketId(int ticketId) {
+        public Builder setTicketId(String ticketId) {
             this.ticketId = ticketId;
             return this;
         }

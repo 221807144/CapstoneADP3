@@ -1,6 +1,7 @@
 package za.ac.cput.Domain.registration;
 
 import jakarta.persistence.*;
+import za.ac.cput.Domain.bookings.VehicleDisc;
 
 import java.time.LocalDate;
 /* Vehicle.java
@@ -15,13 +16,11 @@ public class Vehicle {
     private String VehicleType;
     private String VehicleModel;
     private LocalDate VehicleYear;
-    @ManyToOne
-    @JoinColumn(name = "registration_registration_id")
-    private Registration registration;
+    private  String VehicleColor;
+    @OneToOne
+    @JoinColumn(name = "vehicle_disc_disc_id")
+    private VehicleDisc VehicleDisc;
 
-    public void setRegistration(Registration registration) {
-        this.registration = registration;
-    }
 
     public Vehicle() {
     }
@@ -30,7 +29,9 @@ public class Vehicle {
         this.VehicleType = builder.VehicleType;
         this.VehicleModel = builder.VehicleModel;
         this.VehicleYear = builder.VehicleYear;
-        this.registration = builder.registration;
+        this.VehicleColor = builder.VehicleColor;
+        this.VehicleDisc = builder.VehicleDisc;
+
     }
 
     public int getVehicleID() {
@@ -45,22 +46,28 @@ public class Vehicle {
         return VehicleModel;
     }
 
+    public String getVehicleColor() {
+        return VehicleColor;
+    }
+
     public LocalDate getVehicleYear() {
         return VehicleYear;
     }
 
-    public Registration getRegistration() {
-        return registration;
+    public VehicleDisc getVehicleDisc() {
+        return VehicleDisc;
     }
+
 
     @Override
     public String toString() {
         return "Vehicle{" +
-                "VehicleID='" + VehicleID + '\'' +
+                "VehicleID=" + VehicleID +
                 ", VehicleType='" + VehicleType + '\'' +
                 ", VehicleModel='" + VehicleModel + '\'' +
                 ", VehicleYear=" + VehicleYear +
-                ", registration=" + registration +
+                ", VehicleColor='" + VehicleColor + '\'' +
+                ", VehicleDisc=" + VehicleDisc +
                 '}';
     }
 
@@ -69,7 +76,9 @@ public class Vehicle {
         private String VehicleType;
         private String VehicleModel;
         private LocalDate VehicleYear;
-        private Registration registration;
+        private String VehicleColor;
+        private VehicleDisc VehicleDisc;
+
 
         public Builder setVehicleID(int vehicleID) {
             VehicleID = vehicleID;
@@ -90,18 +99,23 @@ public class Vehicle {
             VehicleYear = vehicleYear;
             return this;
         }
-
-        public Builder setRegistration(Registration registration) {
-            this.registration = registration;
+        public Builder setVehicleColor(String vehicleColor) {
+            VehicleColor = vehicleColor;
             return this;
         }
+        public Builder setVehicleDisc(VehicleDisc VehicleDisc) {
+            this.VehicleDisc = VehicleDisc;
+            return this;
+        }
+
 
         public Builder Copy(Vehicle vehicle) {
             this.VehicleID = vehicle.VehicleID;
             this.VehicleType = vehicle.VehicleType;
             this.VehicleModel = vehicle.VehicleModel;
             this.VehicleYear = vehicle.VehicleYear;
-            this.registration = vehicle.registration;
+            this.VehicleColor = vehicle.VehicleColor;
+            this.VehicleDisc = vehicle.VehicleDisc;
             return this;
         }
 
