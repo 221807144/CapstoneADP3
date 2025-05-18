@@ -14,7 +14,7 @@ Thando Tinto
 public class Payments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int paymentId;
+    private String paymentId;
     private String paymentMethod, paymentDetails;
     private double paymentAmount;
     private LocalDate paymentDate;
@@ -38,7 +38,7 @@ public class Payments {
         this.ticket = builder.ticket;
     }
 
-    public int getPaymentId() {
+    public String getPaymentId() {
         return paymentId;
     }
 
@@ -80,7 +80,7 @@ public class Payments {
     }
 
     public static class Builder {
-        private int paymentId;
+        private String paymentId;
         private String paymentMethod, paymentDetails;
         private double paymentAmount;
         private LocalDate paymentDate;
@@ -88,7 +88,7 @@ public class Payments {
         private Ticket ticket;
         private Bookings bookings;
 
-        public Builder setPaymentId(int paymentId) {
+        public Builder setPaymentId(String paymentId) {
             this.paymentId = paymentId;
             return this;
         }
