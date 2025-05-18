@@ -18,7 +18,7 @@ public class Bookings {
     private Double bookingAmount;
     @OneToOne
     @JoinColumn(name = "test_id")
-    private Test test;
+    private TestAppointment testAppointment;
     @OneToOne
     @JoinColumn(name = "vehicle_disc_id")
     private VehicleDisc vehicleDisc;
@@ -30,7 +30,7 @@ public class Bookings {
         this.bookingDate = builder. bookingDate;
         this.bookingType = builder.bookingType;
         this.bookingAmount = builder.bookingAmount;
-        this.test = builder.test;
+        this.testAppointment = builder.testAppointment;
         this.vehicleDisc = builder.vehicleDisc;
     }
 
@@ -50,7 +50,7 @@ public class Bookings {
         return bookingAmount;
     }
 
-    public Test getTest() {return test;}
+    public TestAppointment getTestAppointment() {return testAppointment;}
     public VehicleDisc getVehicleDisc() {return vehicleDisc;}
 
     @Override
@@ -60,7 +60,7 @@ public class Bookings {
                 ", bookingDate=" + bookingDate +
                 ", bookingType='" + bookingType + '\'' +
                 ", bookingAmount=" + bookingAmount +
-                ", test=" + test +
+                ", testAppointment=" + testAppointment +
                 ", vehicleDisc=" + vehicleDisc +
                 '}';
     }
@@ -71,7 +71,7 @@ public class Bookings {
         private LocalDate bookingDate;
         private String bookingType;
         private Double bookingAmount;
-        private Test test;
+        private TestAppointment testAppointment;
         private VehicleDisc vehicleDisc;
 
         public Builder setBookingId(int bookingId) {
@@ -94,8 +94,8 @@ public class Bookings {
             return this;
         }
 
-        public Builder setTest(Test test) {
-            this.test = test;
+        public Builder setTest(TestAppointment testAppointment) {
+            this.testAppointment = testAppointment;
             return this;
         }
         public Builder setVehicleDisc(VehicleDisc vehicleDisc) {
@@ -108,7 +108,7 @@ public class Bookings {
             this.bookingDate = bookings.bookingDate;
             this.bookingType = bookings.bookingType;
             this.bookingAmount = bookings.bookingAmount;
-            this.test = bookings.test;
+            this.testAppointment = bookings.testAppointment;
             this.vehicleDisc = bookings.vehicleDisc;
             return this;
         }
