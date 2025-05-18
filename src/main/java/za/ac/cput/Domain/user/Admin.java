@@ -16,7 +16,7 @@ public class Admin {
     private int adminId;
     private String adminName;
     private String adminSurname;
-    private Long idNumber;
+    private String idNumber;
 
     @OneToOne
     @JoinColumn(name = "contact_id")
@@ -61,7 +61,7 @@ public class Admin {
         return adminSurname;
     }
 
-    public Long getIdNumber() {
+    public String getIdNumber() {
         return idNumber;
     }
 
@@ -100,7 +100,7 @@ public class Admin {
         private int adminId;
         private String adminName;
         private String adminSurname;
-        private Long idNumber;
+        private String idNumber;
         private Contact contact;
         private Bookings adminBookings;
         private Test test;
@@ -121,7 +121,7 @@ public class Admin {
             return this;
         }
 
-        public Builder setIdNumber(Long idNumber) {
+        public Builder setIdNumber(String idNumber) {
             this.idNumber = idNumber;
             return this;
         }

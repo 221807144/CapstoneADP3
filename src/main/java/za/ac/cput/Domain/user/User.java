@@ -18,7 +18,7 @@ public class User {
  private int UserId;
  private String UserName;
  private String UserSurname;
- private Long IdNumber;
+ private String IdNumber;
  private LocalDate BirthDate;
  @OneToOne
     @JoinColumn(name = "contact_id")
@@ -40,6 +40,9 @@ public class User {
     this.UserSurname = builder.UserSurname;
     this.IdNumber = builder.IdNumber;
     this.BirthDate = builder.BirthDate;
+    this.Contact = builder.Contact;
+    this.address = builder.address;
+    this.UserBooks = builder.UserBooks;
 
     }
 
@@ -55,7 +58,7 @@ public class User {
   return UserSurname;
  }
 
- public Long getIdNumber() {
+ public String getIdNumber() {
   return IdNumber;
  }
 
@@ -86,7 +89,7 @@ public class User {
         private int UserId;
         private String UserName;
         private String UserSurname;
-        private Long IdNumber;
+        private String IdNumber;
         private LocalDate BirthDate;
         private Contact Contact;
         private Address address;
@@ -107,7 +110,7 @@ public class User {
             return this;
         }
 
-        public Builder setIdNumber(Long IdNumber) {
+        public Builder setIdNumber(String IdNumber) {
             this.IdNumber = IdNumber;
             return this;
         }
