@@ -7,6 +7,8 @@ import za.ac.cput.Util.Helper;
 
 import java.time.LocalDate;
 
+
+
 public class BookingsFactory {
 
     private static Bookings createBookings( LocalDate bookingDate, String bookingType, Double bookingAmount, Test test, VehicleDisc vehicleDisc) {
