@@ -5,7 +5,7 @@ import za.ac.cput.Domain.user.User;
 
 /*Emihle Thole
   221755349
-  */
+  18/05/18*/
 @Entity
 public class License {
 
@@ -15,7 +15,7 @@ public class License {
     private String licenseType;
     private String issueDate;
     private String expiryDate;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_user_id")
     private User user;
 
