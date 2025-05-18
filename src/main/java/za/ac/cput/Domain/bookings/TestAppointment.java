@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 //Sinokholo Singazi 222705698
 @Entity
-public class Test {
+public class TestAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int testID;
@@ -18,9 +18,9 @@ public class Test {
     protected LocalDate testDate;
     protected boolean testResult;
     protected String licenseCode;
-    protected int testAmount;
+    protected double testAmount;
 
-    public Test() {
+    public TestAppointment() {
     }
 
     public String getLicenseCode() {
@@ -31,7 +31,7 @@ public class Test {
         return testAddress;
     }
 
-    public int getTestAmount() {
+    public double getTestAmount() {
         return testAmount;
     }
 
@@ -54,7 +54,7 @@ public class Test {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Test test = (Test) o;
+        TestAppointment test = (TestAppointment) o;
         return testResult == test.testResult && testAmount == test.testAmount && Objects.equals(testID, test.testID) && Objects.equals(testAddress, test.testAddress) && Objects.equals(testVenue, test.testVenue) && Objects.equals(testDate, test.testDate) && Objects.equals(licenseCode, test.licenseCode);
     }
 
