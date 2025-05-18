@@ -10,6 +10,9 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//Emihle Thole
+// 221755349
+//18/05/18
 public class BookingsFactoryTest {
 
     @Test
