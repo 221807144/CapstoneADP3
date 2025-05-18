@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contactId;
     private String cellphone;
     private String email;
