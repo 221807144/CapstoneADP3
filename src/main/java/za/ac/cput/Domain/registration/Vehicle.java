@@ -11,13 +11,13 @@ import java.time.LocalDate;
 @Entity
 public class Vehicle {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int VehicleID;
     private String VehicleType;
     private String VehicleModel;
     private LocalDate VehicleYear;
     private  String VehicleColor;
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicle_disc_disc_id")
     private VehicleDisc VehicleDisc;
 

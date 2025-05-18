@@ -13,7 +13,7 @@ public class Registration {
     private int registrationId;
     private  String  registrationNumber;
     private String registrationDate;
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicle_vehicle_id")
     private Vehicle vehicle;
 
