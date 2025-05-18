@@ -1,9 +1,7 @@
-package za.ac.cput.Factory;
+package za.ac.cput.Factory.Contact;
 
 import za.ac.cput.Domain.contact.Address;
 import za.ac.cput.Util.Helper;
-
-import java.util.logging.Handler;
 
 import static za.ac.cput.Util.Helper.generateUniqueId;
 

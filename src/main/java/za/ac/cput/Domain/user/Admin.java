@@ -2,6 +2,7 @@ package za.ac.cput.Domain.user;
 
 import jakarta.persistence.*;
 import za.ac.cput.Domain.bookings.Bookings;
+import za.ac.cput.Domain.bookings.TestAppointment;
 import za.ac.cput.Domain.contact.Contact;
 import za.ac.cput.Domain.payment.Payments;
 import za.ac.cput.Domain.bookings.Test;
@@ -26,7 +27,7 @@ public class Admin {
     private Bookings adminBookings;
     @OneToOne
     @JoinColumn(name = "admin_test_test_id")
-    private Test test;
+    private TestAppointment test;
     @OneToOne
     @JoinColumn(name = "admin_payments_payment_id")
     private Payments payments;
@@ -70,7 +71,7 @@ public class Admin {
         return adminBookings;
     }
 
-    public Test getTest() {
+    public TestAppointment getTest() {
         return test;
     }
 
@@ -100,48 +101,53 @@ public class Admin {
         private String idNumber;
         private Contact contact;
         private Bookings adminBookings;
-        private Test test;
+        private TestAppointment test;
         private Payments payments;
-
         public Builder setAdminId(int adminId) {
             this.adminId = adminId;
             return this;
         }
-
         public Builder setAdminName(String adminName) {
             this.adminName = adminName;
             return this;
         }
-
         public Builder setAdminSurname(String adminSurname) {
             this.adminSurname = adminSurname;
             return this;
         }
-
         public Builder setIdNumber(String idNumber) {
             this.idNumber = idNumber;
             return this;
         }
-
         public Builder setContact(Contact contact) {
             this.contact = contact;
             return this;
         }
-
         public Builder setAdminBookings(Bookings adminBookings) {
             this.adminBookings = adminBookings;
             return this;
         }
-
-        public Builder setTest(Test test) {
+        public Builder setTest(TestAppointment test) {
             this.test = test;
             return this;
         }
         public Builder setPayments(Payments payments) {
             this.payments = payments;
             return this;
-
         }
+        public Builder copy(Admin admin) {
+            this.adminId = admin.adminId;
+            this.adminName = admin.adminName;
+            this.adminSurname = admin.adminSurname;
+            this.idNumber = admin.idNumber;
+            this.contact = admin.contact;
+            this.adminBookings = admin.adminBookings;
+            this.test = admin.test;
+            this.payments = admin.payments;
+            return this;
+        }
+
+
 
         public Admin build() {
             return new Admin(this);

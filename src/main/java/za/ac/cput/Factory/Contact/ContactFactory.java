@@ -1,4 +1,4 @@
-package za.ac.cput.Factory;
+package za.ac.cput.Factory.Contact;
 
 import za.ac.cput.Domain.contact.Contact;
 import za.ac.cput.Util.Helper;
