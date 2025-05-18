@@ -14,7 +14,6 @@ Thando Tinto
 public class Payments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int paymentId;
     private String paymentMethod, paymentDetails;
     private double paymentAmount;
@@ -25,8 +24,6 @@ public class Payments {
     @OneToOne
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;
-    @OneToOne
-    private Payments payments;
 
     public Payments() {
     }
@@ -39,8 +36,6 @@ public class Payments {
         this.paymentDate = builder.paymentDate;
         this.bookings = builder.bookings;
         this.ticket = builder.ticket;
-        this.payments = builder.payments;
-
     }
 
     public int getPaymentId() {
@@ -71,10 +66,6 @@ public class Payments {
         return ticket;
     }
 
-    public Payments getPayments() {
-        return payments;
-    }
-
     @Override
     public String toString() {
         return "Payments{" +
@@ -85,7 +76,6 @@ public class Payments {
                 ", paymentDate=" + paymentDate +
                 ", bookings=" + bookings +
                 ", ticket=" + ticket +
-                ", payments=" + payments +
                 '}';
     }
 
@@ -97,8 +87,6 @@ public class Payments {
         private Payments payments;
         private Ticket ticket;
         private Bookings bookings;
-
-
 
         public Builder setPaymentId(int paymentId) {
             this.paymentId = paymentId;
@@ -132,10 +120,6 @@ public class Payments {
             this.ticket = ticket;
             return this;
         }
-        public Builder setPayments(Payments payments) {
-            this.payments = payments;
-            return this;
-        }
 
         public Builder copy(Payments payments) {
             this.paymentId = payments.paymentId;
@@ -145,7 +129,6 @@ public class Payments {
             this.paymentDate = payments.paymentDate;
             this.bookings = payments.bookings;
             this.ticket = payments.ticket;
-            this.payments = payments.payments;
             return this;
         }
 
