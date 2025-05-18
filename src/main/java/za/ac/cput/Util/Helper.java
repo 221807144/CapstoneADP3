@@ -6,15 +6,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Helper {
 
-    private static final AtomicInteger idCounter = new AtomicInteger(1000); // Start from 1000
-
     // Validate if a string is null or empty
     public static boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();
     }
 
     // Validate if an ID number is valid (example: must be 13 digits)
-    public static boolean isValidIdNumber(String idNumber) {
+    public static boolean isValidIdNumber(Long idNumber) {
         return idNumber != null && String.valueOf(idNumber).length() == 13;
     }
 
@@ -22,12 +20,11 @@ public class Helper {
     public static boolean isDateInPast(LocalDate date) {
         return date != null && date.isBefore(LocalDate.now());
     }
-
-    // Generate a unique integer identifier
+    // Validate if a date is in the future
+    private static final AtomicInteger idCounter = new AtomicInteger(1000); // Start from 1000
     public static int generateUniqueId() {
         return idCounter.getAndIncrement();
-    }
-
+}
     // Validate email using Apache Commons Validator
     public static boolean isValidEmail(String email) {
         EmailValidator validator = EmailValidator.getInstance();
@@ -37,7 +34,7 @@ public class Helper {
     // Extract date of birth from South African ID number
     public static LocalDate getDateOfBirth(String identityNumber) {
         if (identityNumber == null || identityNumber.length() != 13) {
-            return null;
+            throw new IllegalArgumentException("Invalid Identity Number");
         }
 
         int year = Integer.parseInt(identityNumber.substring(0, 2));

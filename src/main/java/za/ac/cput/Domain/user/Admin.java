@@ -31,9 +31,6 @@ public class Admin {
     @JoinColumn(name = "admin_payments_payment_id")
     private Payments payments;
 
-
-
-
     public Admin() {
     }
 

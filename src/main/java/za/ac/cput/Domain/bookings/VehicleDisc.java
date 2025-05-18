@@ -15,12 +15,6 @@ public class VehicleDisc {
     private String discId;
     private LocalDate issueDate;
     private LocalDate expiryDate;
-    @OneToOne
-    @JoinColumn(name = "vehicle_vehicle_id")
-    private Vehicle vehicle;
-    @ManyToOne
-    @JoinColumn(name = "bookings_booking_id")
-    private Bookings bookings;
 
     public VehicleDisc() {
 
@@ -29,8 +23,7 @@ public class VehicleDisc {
         this.discId = builder.discId;
         this.issueDate = builder.issueDate;
         this.expiryDate = builder.expiryDate;
-        this.vehicle = builder.vehicle;
-        this.bookings = builder.bookings;
+
     }
 
     public String getDiscId() {
@@ -45,13 +38,6 @@ public class VehicleDisc {
         return expiryDate;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public Bookings getBookings() {
-        return bookings;
-    }
 
     @Override
     public String toString() {
@@ -59,8 +45,6 @@ public class VehicleDisc {
                 "discId='" + discId + '\'' +
                 ", issueDate=" + issueDate +
                 ", expiryDate=" + expiryDate +
-                ", vehicle=" + vehicle +
-                ", bookings=" + bookings +
                 '}';
     }
 
@@ -68,8 +52,6 @@ public class VehicleDisc {
         private String discId;
         private LocalDate issueDate;
         private LocalDate expiryDate;
-        private Vehicle vehicle;
-        private Bookings bookings;
 
         public Builder setDiscId(String discId) {
             this.discId = discId;
@@ -86,15 +68,6 @@ public class VehicleDisc {
             return this;
         }
 
-        public Builder setVehicle(Vehicle vehicle) {
-            this.vehicle = vehicle;
-            return this;
-        }
-
-        public Builder setBookings(Bookings bookings) {
-            this.bookings = bookings;
-            return this;
-        }
 
         public VehicleDisc build() {
             return new VehicleDisc(this);
