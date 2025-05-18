@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 public class BookingsFactory {
 
-    private static Bookings createBookings(LocalDate bookingDate, String bookingType, Double bookingAmount, TestAppointment testAppointment, VehicleDisc vehicleDisc) {
+    public static Bookings createBookings(LocalDate bookingDate, String bookingType, Double bookingAmount, TestAppointment testAppointment, VehicleDisc vehicleDisc) {
 
         int bookingId = Helper.generateUniqueId();
 if (bookingAmount == null || bookingAmount <= 0)

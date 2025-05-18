@@ -5,7 +5,7 @@ import za.ac.cput.Domain.bookings.Bookings;
 import za.ac.cput.Domain.bookings.TestAppointment;
 import za.ac.cput.Domain.contact.Contact;
 import za.ac.cput.Domain.payment.Payments;
-import za.ac.cput.Domain.bookings.Test;
+import za.ac.cput.Domain.bookings.TestAppointment;
 
 /*Masibuve Sikhulume
 221807144
