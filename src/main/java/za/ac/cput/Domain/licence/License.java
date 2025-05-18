@@ -79,6 +79,10 @@ public class License {
             this.licenseId = licenseId;
             return this;
         }
+        public Builder setLicenseType(String licenseType) {
+            this.licenseType = licenseType;
+            return this;
+        }
 
 
         public Builder setIssueDate(String issueDate) {

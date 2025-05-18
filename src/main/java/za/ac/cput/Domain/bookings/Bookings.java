@@ -1,24 +1,23 @@
 package za.ac.cput.Domain.bookings;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
-/*Emihle Thole
-  221755349
-  */
+
 @Entity
 public class Bookings {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private String bookingId;
+    private int bookingId;
     private LocalDate bookingDate;
     private String bookingType;
     private Double bookingAmount;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "test_id")
     private Test test;
-
+    @OneToOne
+    @JoinColumn(name = "vehicle_disc_id")
+    private VehicleDisc vehicleDisc;
     public Bookings() {
     }
 
@@ -28,9 +27,10 @@ public class Bookings {
         this.bookingType = builder.bookingType;
         this.bookingAmount = builder.bookingAmount;
         this.test = builder.test;
+        this.vehicleDisc = builder.vehicleDisc;
     }
 
-    public String getBookingId() {
+    public int getBookingId() {
         return bookingId;
     }
 
@@ -47,28 +47,30 @@ public class Bookings {
     }
 
     public Test getTest() {return test;}
+    public VehicleDisc getVehicleDisc() {return vehicleDisc;}
 
     @Override
     public String toString() {
         return "Bookings{" +
-                "bookingAmount=" + bookingAmount +
-                ", bookingId='" + bookingId + '\'' +
+                "bookingId=" + bookingId +
                 ", bookingDate=" + bookingDate +
                 ", bookingType='" + bookingType + '\'' +
+                ", bookingAmount=" + bookingAmount +
                 ", test=" + test +
+                ", vehicleDisc=" + vehicleDisc +
                 '}';
-
-}
+    }
 
     public static class Builder{
 
-        private String bookingId;
+        private int bookingId;
         private LocalDate bookingDate;
         private String bookingType;
         private Double bookingAmount;
         private Test test;
+        private VehicleDisc vehicleDisc;
 
-        public Builder setBookingId(String bookingId) {
+        public Builder setBookingId(int bookingId) {
             this.bookingId = bookingId;
             return this;
         }
@@ -92,6 +94,10 @@ public class Bookings {
             this.test = test;
             return this;
         }
+        public Builder setVehicleDisc(VehicleDisc vehicleDisc) {
+            this.vehicleDisc = vehicleDisc;
+            return this;
+        }
 
         public Builder copy(Bookings bookings) {
             this.bookingId = bookings.bookingId;
@@ -99,6 +105,7 @@ public class Bookings {
             this.bookingType = bookings.bookingType;
             this.bookingAmount = bookings.bookingAmount;
             this.test = bookings.test;
+            this.vehicleDisc = bookings.vehicleDisc;
             return this;
         }
 
