@@ -3,6 +3,10 @@ package za.ac.cput.Factory;
 import za.ac.cput.Domain.bookings.*;
 import za.ac.cput.Util.Helper;
 
+//Emihle Thole
+// 221755349
+//18/05/18
+
 import java.time.LocalDate;
 
 
@@ -37,8 +41,5 @@ if(Helper.isDateInPast(bookingDate)|| !Helper.isNullOrEmpty(bookingDate.toString
                 .setDrivingTest(drivingTest)
                 .setLearnersTest(learnersTest)
                 .build();
-    }
-
-    public static Bookings createBookings(LocalDate bookingDate, String drivingTest, double bookingAmount, LearnersTest learnersTest, VehicleDisc vehicleDisc, DrivingTest drivingTest1) {
     }
 }
