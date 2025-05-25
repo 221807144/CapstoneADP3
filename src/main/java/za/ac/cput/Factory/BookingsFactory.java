@@ -21,8 +21,8 @@ if (bookingAmount == null || bookingAmount <= 0)
 if(Helper.isNullOrEmpty(bookingType))
     return null;
 
-if(Helper.isDateInPast(bookingDate)|| !Helper.isNullOrEmpty(bookingDate.toString()))
-    return null;
+        if (Helper.isDateInPast(bookingDate))
+            return null;
         if (vehicleDisc == null)
             return null;
 
