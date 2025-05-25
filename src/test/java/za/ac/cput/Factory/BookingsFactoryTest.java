@@ -10,47 +10,58 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//Emihle Thole
-// 221755349
-//18/05/18
 public class BookingsFactoryTest {
 
     @Test
-    public void testBookingForLearnersTest() {
-        Bookings booking = BookingsFactory.createBookings(
-                LocalDate.now().plusDays(7),
-                "Learner's Test",
-                180.00,
-                new LearnersTest(),
-                null,
-                new VehicleDisc()
-        );
+    public void testCreateValidBookingWithLearnersAndDrivingTest() {
+        LocalDate futureDate = LocalDate.now().plusDays(5);
+        LearnersTest learnersTest = new LearnersTest();
+        DrivingTest drivingTest = new DrivingTest();
+        VehicleDisc vehicleDisc = new VehicleDisc();
+
+        Bookings booking = BookingsFactory.createBookings(futureDate, "Learners and Driving", 200.00, learnersTest, vehicleDisc, drivingTest);
         assertNotNull(booking);
+        System.out.println(booking);
     }
 
     @Test
-    public void testBookingForDrivingTest() {
-        Bookings booking = BookingsFactory.createBookings(
-                LocalDate.now().plusDays(7),
-                "Driving Test",
-                250.00,
-                null,
-                new VehicleDisc(),
-                new DrivingTest()
-        );
-        assertNotNull(booking);
+    public void testCreateBookingWithNullAmount() {
+        LocalDate futureDate = LocalDate.now().plusDays(3);
+        LearnersTest learnersTest = new LearnersTest();
+        DrivingTest drivingTest = new DrivingTest();
+        VehicleDisc vehicleDisc = new VehicleDisc();
+
+        Bookings booking = BookingsFactory.createBookings(futureDate, "Null Amount", null, learnersTest, vehicleDisc, drivingTest);
+        assertNull(booking);
     }
 
     @Test
-    public void testBookingFailsWithPastDate() {
-        Bookings booking = BookingsFactory.createBookings(
-                LocalDate.now().minusDays(1),
-                "Learner's Test",
-                100.00,
-                new LearnersTest(),
-                null,
-                new VehicleDisc()
-        );
+    public void testCreateBookingWithPastDate() {
+        LocalDate pastDate = LocalDate.now().minusDays(1);
+        LearnersTest learnersTest = new LearnersTest();
+        DrivingTest drivingTest = new DrivingTest();
+        VehicleDisc vehicleDisc = new VehicleDisc();
+
+        Bookings booking = BookingsFactory.createBookings(pastDate, "Past Date", 100.00, learnersTest, vehicleDisc, drivingTest);
+        assertNull(booking);
+    }
+
+    @Test
+    public void testCreateBookingWithNullVehicleDisc() {
+        LocalDate futureDate = LocalDate.now().plusDays(5);
+        LearnersTest learnersTest = new LearnersTest();
+        DrivingTest drivingTest = new DrivingTest();
+
+        Bookings booking = BookingsFactory.createBookings(futureDate, "No VehicleDisc", 120.00, learnersTest, null, drivingTest);
+        assertNull(booking);
+    }
+
+    @Test
+    public void testCreateBookingWithNullTests() {
+        LocalDate futureDate = LocalDate.now().plusDays(5);
+        VehicleDisc vehicleDisc = new VehicleDisc();
+
+        Bookings booking = BookingsFactory.createBookings(futureDate, "No Tests", 150.00, null, vehicleDisc, null);
         assertNull(booking);
     }
 }
