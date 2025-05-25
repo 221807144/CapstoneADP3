@@ -1,7 +1,7 @@
 package za.ac.cput.Factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Domain.bookings.LearnersTest;
+import za.ac.cput.Factory.booking.LearnersTestFactory;
 
 import java.time.LocalDate;
 
