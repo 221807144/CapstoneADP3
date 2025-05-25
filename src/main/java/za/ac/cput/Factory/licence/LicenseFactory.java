@@ -2,7 +2,7 @@
   221755349
   18/05/18*/
 
-package za.ac.cput.Factory;
+package za.ac.cput.Factory.licence;
 
 import za.ac.cput.Domain.licence.License;
 import za.ac.cput.Domain.user.User;
