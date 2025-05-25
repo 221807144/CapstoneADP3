@@ -1,4 +1,4 @@
-package za.ac.cput.Factory;
+package za.ac.cput.Factory.booking;
 
 import za.ac.cput.Domain.bookings.LearnersTest;
 import za.ac.cput.Util.Helper;
