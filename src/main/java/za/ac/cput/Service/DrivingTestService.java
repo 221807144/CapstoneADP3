@@ -37,8 +37,8 @@ public class DrivingTestService implements IDrivingTestService {
         drivingTestRepository.deleteById(id);
     }
     @Override
-    public List<DrivingTest> findByTestId(Integer testId) {
-        return (List<DrivingTest>) drivingTestRepository.findByTestId(testId);
+    public List<DrivingTest> findByTestId(Integer id) {
+        return (List<DrivingTest>) drivingTestRepository.findByTestId(id);
     }
 
 }
