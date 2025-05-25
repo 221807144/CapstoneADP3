@@ -36,11 +36,10 @@ public class DrivingTest extends TestAppointment {
     public String getExaminer() {
         return examiner;
     }
-
     @Override
     public String toString() {
         return "DrivingTest{" +
-                "driverLicenseID='" + driverLicenseID + '\'' +
+                "driverLicenseID=" + driverLicenseID +
                 ", examiner='" + examiner + '\'' +
                 ", testID='" + testID + '\'' +
                 ", testAddress='" + testAddress + '\'' +
