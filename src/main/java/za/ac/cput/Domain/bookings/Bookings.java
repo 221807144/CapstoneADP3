@@ -18,7 +18,11 @@ public class Bookings {
     private Double bookingAmount;
     @OneToOne
     @JoinColumn(name = "test_id")
-    private TestAppointment testAppointment;
+    private DrivingTest drivingTest;
+    @OneToOne
+    @JoinColumn(name = "test_appointment_id")
+    private LearnersTest learnersTest;
+
     @OneToOne
     @JoinColumn(name = "vehicle_disc_id")
     private VehicleDisc vehicleDisc;
@@ -30,8 +34,10 @@ public class Bookings {
         this.bookingDate = builder. bookingDate;
         this.bookingType = builder.bookingType;
         this.bookingAmount = builder.bookingAmount;
-        this.testAppointment = builder.testAppointment;
         this.vehicleDisc = builder.vehicleDisc;
+        this.drivingTest = builder.drivingTest;
+        this.learnersTest = builder.learnersTest;
+
     }
 
     public int getBookingId() {
@@ -48,10 +54,20 @@ public class Bookings {
 
     public Double getBookingAmount() {
         return bookingAmount;
+
     }
 
-    public TestAppointment getTestAppointment() {return testAppointment;}
-    public VehicleDisc getVehicleDisc() {return vehicleDisc;}
+    public VehicleDisc getVehicleDisc() {
+        return vehicleDisc;
+
+    }
+
+    public DrivingTest getDrivingTest() {
+        return drivingTest;
+    }
+    public LearnersTest getLearnersTest() {
+        return learnersTest;
+    }
 
     @Override
     public String toString() {
@@ -60,7 +76,8 @@ public class Bookings {
                 ", bookingDate=" + bookingDate +
                 ", bookingType='" + bookingType + '\'' +
                 ", bookingAmount=" + bookingAmount +
-                ", testAppointment=" + testAppointment +
+                ", drivingTest=" + drivingTest +
+                ", learnersTest=" + learnersTest +
                 ", vehicleDisc=" + vehicleDisc +
                 '}';
     }
@@ -71,8 +88,9 @@ public class Bookings {
         private LocalDate bookingDate;
         private String bookingType;
         private Double bookingAmount;
-        private TestAppointment testAppointment;
         private VehicleDisc vehicleDisc;
+        private DrivingTest drivingTest;
+        private LearnersTest learnersTest;
 
         public Builder setBookingId(int bookingId) {
             this.bookingId = bookingId;
@@ -94,12 +112,17 @@ public class Bookings {
             return this;
         }
 
-        public Builder setTest(TestAppointment testAppointment) {
-            this.testAppointment = testAppointment;
-            return this;
-        }
+
         public Builder setVehicleDisc(VehicleDisc vehicleDisc) {
             this.vehicleDisc = vehicleDisc;
+            return this;
+        }
+        public Builder setDrivingTest(DrivingTest drivingTest) {
+            this.drivingTest = drivingTest;
+            return this;
+        }
+        public Builder setLearnersTest(LearnersTest learnersTest) {
+            this.learnersTest = learnersTest;
             return this;
         }
 
@@ -108,8 +131,9 @@ public class Bookings {
             this.bookingDate = bookings.bookingDate;
             this.bookingType = bookings.bookingType;
             this.bookingAmount = bookings.bookingAmount;
-            this.testAppointment = bookings.testAppointment;
             this.vehicleDisc = bookings.vehicleDisc;
+            this.drivingTest = bookings.drivingTest;
+            this.learnersTest = bookings.learnersTest;
             return this;
         }
 
